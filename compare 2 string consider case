@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+
+typedef int BOOL;
+#define TRUE 1
+#define FALSE 0
+
+BOOL display(char *src, char *dest)
+{
+	while ((*src != '\0') && (*dest !='\0'))
+	{
+		if ((*src >= 'A') && (*src <= 'Z'))
+		{
+			if ((*src + 32) == *dest)
+			{
+				src++;
+				dest++;
+				continue;
+			}
+			else if (*src==(*dest-32))
+			{
+				src++;
+				dest++;
+				continue;
+			}
+			else if (*src == *dest)
+			{
+				src++;
+				dest++;
+				continue;
+			}
+
+		}
+		else if ((*src >= 'a') && (*src <= 'z'))
+		{
+			if ((*src - 32) == *dest)
+			{
+				src++;
+				dest++;
+				continue;
+			}
+			else if (*src == (*dest + 32))
+			{
+				src++;
+				dest++;
+				continue;
+			}
+			else if (*src == *dest)
+			{
+				src++;
+				dest++;
+				continue;
+			}
+
+		}
+		if (*src != *dest)
+		{
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+int main()
+{
+	char arr[15] = { "info" };
+	char brr[15] = { "marVELlOus" };
+	BOOL bret = FALSE;
+
+   bret=display(arr, brr);
+   if (bret == TRUE)
+   {
+	   printf("TRUE");
+   }
+   else
+   {
+	   printf("FALSE");
+   }
+	getch();
+	return 0;
+}s
